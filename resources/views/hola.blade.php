@@ -3,6 +3,4 @@
     ASDFGHJKLÑ
     $s = 2 + 2
 
-
-
-ya no jalo
+mi propia rama
