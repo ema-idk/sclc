@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Barberos;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 class BarberosController extends Controller
 {
     /**
@@ -38,8 +38,13 @@ class BarberosController extends Controller
     {
         //$datosBarbero=request()->all();
         $datosBarbero=request()->except('_token');
+        if($request->hasFile('Foto')){
+            $datosBarbero['Foto']=$request->file('Foto')->store('uploads','public');
+        }
         Barberos::insert($datosBarbero);
+
         return response()->json($datosBarbero);
+
     }
 
     /**
@@ -75,6 +80,12 @@ class BarberosController extends Controller
     public function update(Request $request, $id)
     {
         $datosBarbero=request()->except(['_token', '_method']);
+
+        if($request->hasFile('Foto')){
+            $barbero = Barberos::findOrFail($id);
+            Storage::delete(['public/', $barbero->foto]);
+            $datosBarbero['Foto']=$request->file('Foto')->store('uploads','public');
+        }
         Barberos::where('id','=',$id)->update($datosBarbero);
         $barbero = Barberos::findOrFail($id);
         return view('barberos.edit', compact('barbero'));

@@ -17,8 +17,11 @@ class CreateBarberosTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('correo');
+            $table->string('contrasena');
             $table->string('estado');
-            $table->string('codigo');
+            $table->string('telefono');
+            $table->string('foto');
+
             $table->timestamps();
         });
     }
