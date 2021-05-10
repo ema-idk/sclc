@@ -31,7 +31,7 @@ class BarberosController extends Controller
             ->count()){
             return view('barberos.create');
         }else{
-            return view('barberos.modal');
+            return "Limite de barberos alcanzado";
         }
 
     }
