@@ -6,7 +6,7 @@
         {{ csrf_field() }}
         {{ method_field('PATCH') }}
         <label for="Nombre">{{'Nombre completo'}}</label>
-        <input type="text" name="Nombre" id="Nombre" value="{{$barbero->nombre}}">
+        <input type="text" name="Nombre" id="Nombre"  value="{{$barbero->nombre}}">
         <br/><br/>
         <label for="contrasena">{{'contrasena'}}</label>
         <input type="text" name="contrasena" id="contrasena" value="{{$barbero->contrasena}}">
@@ -15,8 +15,15 @@
         <input type="email" name="Correo" id="Correo" value="{{$barbero->correo}}">
         <br/><br/>
         <label for="Estado">{{'Estado'}}</label>
-        <input type="text" name="Estado" id="Estado"  value="{{$barbero->estado}}  "    >
-        <br/><br/>
+            <input type="radio"  class="checkmark" name="Estado" id="Estado" value="Disponible">
+            <label for="Estado">Disponible</label >
+
+            <input type="radio" class="checkmark" name="Estado" id="Estado" value="Ausente">
+            <label for="Estado">Ausente</label>
+
+        <br/>
+
+        <br/>
         <label for="telefono">Telefono</label>
 
         <input type="text" name="Telefono" id="Telefono" value="{{$barbero->telefono}}">

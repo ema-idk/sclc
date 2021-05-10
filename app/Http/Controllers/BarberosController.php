@@ -80,13 +80,16 @@ class BarberosController extends Controller
     public function update(Request $request, $id)
     {
         $datosBarbero=request()->except(['_token', '_method']);
+        if($datosBarbero)
 
         if($request->hasFile('Foto')){
             $barbero = Barberos::findOrFail($id);
             Storage::delete(['public/', $barbero->foto]);
             $datosBarbero['Foto']=$request->file('Foto')->store('uploads','public');
         }
+
         Barberos::where('id','=',$id)->update($datosBarbero);
+
         $barbero = Barberos::findOrFail($id);
         return view('barberos.edit', compact('barbero'));
     }
