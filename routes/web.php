@@ -17,7 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::get('/barberos', 'BarberosController@index');
-//Route::get('/barberos/create', 'BarberosController@create');
-
 Route::resource('barberos','BarberosController');
+
+Auth::routes();
+
+Route::get('/citas', [App\Http\Controllers\EventoController::class, 'index']);
+Route::get('/citas/mostrar', [App\Http\Controllers\EventoController::class, 'show']);
+
+Route::post('/citas/consultar/{id}', [App\Http\Controllers\EventoController::class, 'edit']);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

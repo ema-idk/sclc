@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barberos;
-use Illuminate\Support\Str;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 class BarberosController extends Controller
