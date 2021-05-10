@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barberos;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 class BarberosController extends Controller
@@ -42,7 +43,6 @@ class BarberosController extends Controller
             $datosBarbero['Foto']=$request->file('Foto')->store('uploads','public');
         }
         Barberos::insert($datosBarbero);
-
         return response()->json($datosBarbero);
 
     }

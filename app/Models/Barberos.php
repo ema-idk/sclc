@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Barberos extends Model
 {
     use HasFactory;
+
+    public function getNombreAttribute($value)
+    {
+        return strtoupper($value);
+    }
+
 }
