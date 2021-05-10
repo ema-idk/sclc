@@ -15,7 +15,7 @@ class BarberosController extends Controller
      */
     public function index()
     {
-        $datos['barberos']=Barberos::paginate(5);
+        $datos['barberos']=Barberos::paginate(7);
         return view('barberos.index', $datos);
     }
 
@@ -26,7 +26,14 @@ class BarberosController extends Controller
      */
     public function create()
     {
-        return view('barberos.create');
+
+        if(7>$disponibilidad = \DB::table('barberos')
+            ->count()){
+            return view('barberos.create');
+        }else{
+            return view('barberos.modal');
+        }
+
     }
 
     /**
@@ -86,6 +93,7 @@ class BarberosController extends Controller
             Storage::delete(['public/', $barbero->foto]);
             $datosBarbero['Foto']=$request->file('Foto')->store('uploads','public');
         }
+
         Barberos::where('id','=',$id)->update($datosBarbero);
         $barbero = Barberos::findOrFail($id);
         return view('barberos.edit', compact('barbero'));

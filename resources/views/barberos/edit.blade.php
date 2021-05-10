@@ -14,6 +14,7 @@
         <label for="Correo">{{'Correo'}}</label>
         <input type="email" name="Correo" id="Correo" value="{{$barbero->correo}}">
         <br/><br/>
+
         <label for="Estado">{{'Estado'}}</label>
         <input type="text" name="Estado" id="Estado"  value="{{$barbero->estado}}  "    >
         <br/><br/>
