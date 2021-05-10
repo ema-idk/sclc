@@ -15,8 +15,8 @@ class CreateBarberosTable extends Migration
     {
         Schema::create('barberos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('correo');
+            $table->string('nombre')->unique();
+            $table->string('correo')->unique();
             $table->string('contrasena');
             $table->string('estado');
             $table->string('telefono');
