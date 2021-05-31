@@ -10001,4 +10001,10 @@ h3 {
     color: inherit;
     border-color: #dee2e6;
   }
+
+  .imagenes-barbero{
+      height: 20px;
+      width: 20px;
+      border-radius: 2px;
+  }
 }

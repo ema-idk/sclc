@@ -15,7 +15,10 @@
         <input type="email" name="Correo" id="Correo" value="{{$barbero->correo}}">
         <br/><br/>
         <label for="Estado">{{'Estado'}}</label>
-        <input type="text" name="Estado" id="Estado"  value="{{$barbero->estado}}  "    >
+        <input type="radio"  class="checkmark" name="Estado" id="Estado" value="Disponible">
+        <label for="Estado">Disponible</label >
+        <input type="radio" class="checkmark" name="Estado" id="Estado" value="Ausente">
+        <label for="Estado">Ausente</label>
         <br/><br/>
         <label for="telefono">Telefono</label>
 

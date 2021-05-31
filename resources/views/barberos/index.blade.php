@@ -8,7 +8,7 @@
     <!--  <td>{{ $loop->iteration}}</td>
 -->
 
-        <div class="division_Barbero"><P><img src="{{asset('storage').'/'.$barbero->foto}}" alt="">
+        <div class="container"><P><img src="{{asset('storage').'/'.$barbero->foto}}" class="img-thumbnail" alt="">
 
                 {{ $barbero->nombre}}
 

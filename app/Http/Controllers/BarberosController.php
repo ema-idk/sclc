@@ -26,7 +26,13 @@ class BarberosController extends Controller
      */
     public function create()
     {
-        return view('barberos.create');
+        if(7>$disponibilidad = \DB::table('barberos')
+                ->count()){
+            return view('barberos.create');
+        }else{
+            return "Limite de barberos alcanzado";
+        }
+
     }
 
     /**
